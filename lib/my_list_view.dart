@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbox/topic_notifications.dart';
 import 'package:flutterbox/topic_shared_prefs.dart';
+import 'package:flutterbox/topic_tab_bar.dart';
 import 'package:flutterbox/topic_toast.dart';
 
 Widget myListView(BuildContext context) {
@@ -8,6 +9,7 @@ Widget myListView(BuildContext context) {
     'Toast',
     'Shared Preferences',
     'Notifications',
+    'Tab Bar',
     'Network Info',
     'Define Custom Color'
   ];
@@ -31,6 +33,9 @@ Widget myListView(BuildContext context) {
                   break;
                 case 'Notifications':
                   route = NotificationRoute();
+                  break;
+                case 'Tab Bar':
+                  route = TabBarRoute();
                   break;
                 default:
                   route = null;
