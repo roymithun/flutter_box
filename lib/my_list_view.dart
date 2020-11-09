@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterbox/camera/topic_camera.dart';
 import 'package:flutterbox/topic_notifications.dart';
 import 'package:flutterbox/topic_shared_prefs.dart';
 import 'package:flutterbox/topic_tab_bar.dart';
@@ -10,6 +11,8 @@ Widget myListView(BuildContext context) {
     'Shared Preferences',
     'Notifications',
     'Tab Bar',
+    'Camera',
+    // TODO list below
     'Network Info',
     'Define Custom Color'
   ];
@@ -36,6 +39,9 @@ Widget myListView(BuildContext context) {
                   break;
                 case 'Tab Bar':
                   route = TabBarRoute();
+                  break;
+                case 'Camera':
+                  route = CameraRoute();
                   break;
                 default:
                   route = null;
