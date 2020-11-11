@@ -1,6 +1,6 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterbox/camera/camera_captured_photo_screen.dart';
+import 'package:flutterbox/camera/capture_photo_screen.dart';
 
 import 'camera_loopback_screen.dart';
 
@@ -53,7 +53,7 @@ class CameraRoute extends StatelessWidget {
       context,
       MaterialPageRoute(
           builder: (context) =>
-              CameraCapturedPhotoScreen(cameraDescription: cameras[0])),
+              CapturePhotoScreen(cameraDescription: cameras[0])),
     );
   }
 }

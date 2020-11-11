@@ -6,17 +6,17 @@ import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 
-class CameraCapturedPhotoScreen extends StatefulWidget {
+class CapturePhotoScreen extends StatefulWidget {
   final CameraDescription cameraDescription;
 
-  const CameraCapturedPhotoScreen({Key key, @required this.cameraDescription})
+  const CapturePhotoScreen({Key key, @required this.cameraDescription})
       : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => CameraCapturedPhotoScreenState();
+  State<StatefulWidget> createState() => CapturePhotoScreenState();
 }
 
-class CameraCapturedPhotoScreenState extends State<CameraCapturedPhotoScreen> {
+class CapturePhotoScreenState extends State<CapturePhotoScreen> {
   CameraController _cameraController;
   Future<void> _initializeControllerFuture;
   String imagePath;
@@ -37,7 +37,7 @@ class CameraCapturedPhotoScreenState extends State<CameraCapturedPhotoScreen> {
     _initializeControllerFuture = _cameraController.initialize();
   }
 
-  Future<void> takePicture() async {
+  Future<void> takePicture(BuildContext context) async {
     await _initializeControllerFuture;
 
     // Construct the path where the image should be saved using the
@@ -51,6 +51,11 @@ class CameraCapturedPhotoScreenState extends State<CameraCapturedPhotoScreen> {
     imagePath = path;
     // Attempt to take a picture and log where it's been saved.
     await _cameraController.takePicture(path);
+
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => DisplayPictureScreen(imagePath: path)));
   }
 
   @override
@@ -61,18 +66,27 @@ class CameraCapturedPhotoScreenState extends State<CameraCapturedPhotoScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-        future: takePicture(),
-        builder: (buildContext, asyncSnapshot) {
-          if (asyncSnapshot.connectionState == ConnectionState.done) {
-            return Image.file(File(imagePath));
-          } else {
-            return Center(child: CircularProgressIndicator());
-          }
-        });
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Capture Photo'),
+      ),
+      body: FutureBuilder(
+          future: _initializeControllerFuture,
+          builder: (buildContext, asyncSnapshot) {
+            if (asyncSnapshot.connectionState == ConnectionState.done) {
+              return CameraPreview(_cameraController);
+            } else {
+              return Center(child: CircularProgressIndicator());
+            }
+          }),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.camera),
+        onPressed: () => takePicture(context),
+      ),
+    );
   }
 }
-/*
+
 // A widget that displays the picture taken by the user.
 class DisplayPictureScreen extends StatelessWidget {
   final String imagePath;
@@ -85,7 +99,10 @@ class DisplayPictureScreen extends StatelessWidget {
       appBar: AppBar(title: Text('Display the Picture')),
       // The image is stored as a file on the device. Use the `Image.file`
       // constructor with the given path to display the image.
-      body: Image.file(File(imagePath)),
+
+      body: Center(
+        child: Image.file(File(imagePath)),
+      ),
     );
   }
-}*/
+}
