@@ -40,31 +40,36 @@ class CameraLoopbackScreenState extends State<CameraLoopbackScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        FutureBuilder(
-            future: _initializeControllerFuture,
-            builder: (buildContext, asyncSnapshot) {
-              if (asyncSnapshot.connectionState == ConnectionState.done) {
-                return CameraPreview(_cameraController);
-              } else {
-                return Center(child: CircularProgressIndicator());
-              }
-            }),
-        Container(
-            margin: EdgeInsets.only(left: 30.0, top: 70.0),
-            width: 120,
-            height: 160,
-            child: FutureBuilder(
-                future: _initializeControllerFuture,
-                builder: (buildContext, asyncSnapshot) {
-                  if (asyncSnapshot.connectionState == ConnectionState.done) {
-                    return CameraPreview(_cameraController);
-                  } else {
-                    return Center(child: CircularProgressIndicator());
-                  }
-                })),
-      ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Camera Loopback'),
+      ),
+      body: Stack(
+        children: <Widget>[
+          FutureBuilder(
+              future: _initializeControllerFuture,
+              builder: (buildContext, asyncSnapshot) {
+                if (asyncSnapshot.connectionState == ConnectionState.done) {
+                  return CameraPreview(_cameraController);
+                } else {
+                  return Center(child: CircularProgressIndicator());
+                }
+              }),
+          Container(
+              margin: EdgeInsets.only(left: 20.0, top: 20.0),
+              width: 120,
+              height: 160,
+              child: FutureBuilder(
+                  future: _initializeControllerFuture,
+                  builder: (buildContext, asyncSnapshot) {
+                    if (asyncSnapshot.connectionState == ConnectionState.done) {
+                      return CameraPreview(_cameraController);
+                    } else {
+                      return Center(child: CircularProgressIndicator());
+                    }
+                  })),
+        ],
+      ),
     );
   }
 }

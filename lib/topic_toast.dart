@@ -27,7 +27,7 @@ class ToastRoute extends StatelessWidget {
               RaisedButton(
                 onPressed: () {
                   // Navigate back to first route when tapped.
-                  FlutterToast.showToast(
+                  Fluttertoast.showToast(
                       msg: 'This is Long Toast',
                       toastLength: Toast.LENGTH_LONG,
                       gravity: ToastGravity.BOTTOM,
@@ -41,7 +41,7 @@ class ToastRoute extends StatelessWidget {
               RaisedButton(
                 onPressed: () {
                   // Navigate back to first route when tapped.
-                  FlutterToast.showToast(
+                  Fluttertoast.showToast(
                       msg: 'This is Short Toast',
                       toastLength: Toast.LENGTH_SHORT,
                       gravity: ToastGravity.BOTTOM,
@@ -55,7 +55,7 @@ class ToastRoute extends StatelessWidget {
               RaisedButton(
                 onPressed: () {
                   // Navigate back to first route when tapped.
-                  FlutterToast.showToast(
+                  Fluttertoast.showToast(
                       msg: 'This is Center Short Toast',
                       toastLength: Toast.LENGTH_SHORT,
                       gravity: ToastGravity.CENTER,
@@ -69,7 +69,7 @@ class ToastRoute extends StatelessWidget {
               RaisedButton(
                 onPressed: () {
                   // Navigate back to first route when tapped.
-                  FlutterToast.showToast(
+                  Fluttertoast.showToast(
                       msg: 'This is Top Short Toast',
                       toastLength: Toast.LENGTH_SHORT,
                       gravity: ToastGravity.TOP,
@@ -83,7 +83,7 @@ class ToastRoute extends StatelessWidget {
               RaisedButton(
                 onPressed: () {
                   // Navigate back to first route when tapped.
-                  FlutterToast.showToast(
+                  Fluttertoast.showToast(
                       msg: 'This is Center Short Toast',
                       toastLength: Toast.LENGTH_SHORT,
                       gravity: ToastGravity.CENTER,
