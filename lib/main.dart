@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'my_list_view.dart';
+import 'src/my_list_view.dart';
 
 void main() => runApp(MyApp());
 

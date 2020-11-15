@@ -1,6 +1,6 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterbox/camera/capture_photo_screen.dart';
+import 'package:flutterbox/src/camera/capture_photo_screen.dart';
 
 import 'camera_loopback_screen.dart';
 

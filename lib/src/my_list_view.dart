@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutterbox/camera/topic_camera.dart';
-import 'package:flutterbox/topic_notifications.dart';
-import 'package:flutterbox/topic_shared_prefs.dart';
-import 'package:flutterbox/topic_tab_bar.dart';
-import 'package:flutterbox/topic_toast.dart';
+import 'package:flutterbox/src/camera/topic_camera.dart';
+import 'package:flutterbox/src/topic_notifications.dart';
+import 'package:flutterbox/src/topic_shared_prefs.dart';
+import 'package:flutterbox/src/topic_tab_bar.dart';
+import 'package:flutterbox/src/topic_toast.dart';
 
 Widget myListView(BuildContext context) {
   final topics = [

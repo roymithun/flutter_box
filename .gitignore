@@ -60,6 +60,7 @@ unlinked.ds
 unlinked_spec.ds
 
 # Android related
+.gradle/
 **/android/**/gradle-wrapper.jar
 **/android/.gradle
 **/android/captures/
@@ -118,3 +119,5 @@ app.*.symbols
 !**/ios/**/default.perspectivev3
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 !/dev/ci/**/Gemfile.lock
+
+local.properties
